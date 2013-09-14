@@ -32,7 +32,7 @@ An example of how to use the PHP kit
 		$accessToken = $client->getAccessToken($_GET['code'], 'http://this.url');
 	
 		// set authentication token
-		$client->setAccessToken($accessToken);
+		$client->setAccessToken($accessToken->access_token);
 		
 	    echo '
 	    	<p>Lets test the API by pulling down contacts</p>	
