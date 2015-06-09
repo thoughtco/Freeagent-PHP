@@ -40,10 +40,10 @@ class Freeagent {
         $this->clientId = $clientId;
         $this->clientSecret = $clientSecret;
 
-        if($sandbox==true) {
-          $this->oauthAuthoriseURL = preg_replace('/api/', 'api.sandbox', $this->oauthAuthoriseURL);
-          $this->oauthAccessTokenURL = preg_replace('/api/', 'api.sandbox', $this->oauthAccessTokenURL);
-          $this->apiUrl = preg_replace('/api/', 'api.sandbox', $this->apiUrl);
+        if ($sandbox==true){
+			$this->oauthAuthoriseURL = preg_replace('/api/', 'api.sandbox', $this->oauthAuthoriseURL);
+			$this->oauthAccessTokenURL = preg_replace('/api/', 'api.sandbox', $this->oauthAccessTokenURL);
+			$this->apiUrl = preg_replace('/api/', 'api.sandbox', $this->apiUrl);
         }
 
     }
