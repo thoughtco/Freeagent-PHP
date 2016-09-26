@@ -148,7 +148,7 @@ class Freeagent {
     private function call($endpoint, $type, $data=array()){
 
         $ch = curl_init();
-        
+
         // Setup curl options
         $curl_options = array(
             CURLOPT_CONNECTTIMEOUT => 10,
@@ -156,9 +156,13 @@ class Freeagent {
             CURLOPT_TIMEOUT        => 60,
             CURLOPT_USERAGENT      => 'Depot-PHP'
         );
-        
+
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+        curl_setopt($ch, CURLOPT_CAINFO, getcwd() . "/../cacert.pem");
+
         $splitBody = false;
-        
+
         // Set curl url to call
         if ($type == 'oauth'){
             $curlURL = $this->oauthAccessTokenURL;
